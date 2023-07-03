@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage('Git Checkout'){
             steps{
-                git credentialsId: 'Git_Pwd', url: 'https://github.com/abcd0000abcd/maven-web-app.git'
+                git credentialsId: 'Git_Pwd', url: 'https://github.com/abcd0000abcd/hello-world.git'
             }
         }
         stage ('Maven Build'){
