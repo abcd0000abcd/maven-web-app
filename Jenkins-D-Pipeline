@@ -9,28 +9,28 @@ pipeline{
         stage ('Maven Build'){
             steps{
                 sh 'mvn clean package'
-                // sh 'mv target/*.war target/dpipeline4.war'
+                sh 'mv target/*.war target/dpipeline4.war'
             }
         }
-       // stage('review the code'){
-         //   steps{
-           //     script{
-             //       withSonarQubeEnv(credentialsId: 'Sonar-Tokan') {
-               //      sh 'mvn sonar:sonar'
-                 //   }
-                //}
-           // }
-       // }
-        //stage('Build artifacts'){
-          //  steps{
-            //    nexusArtifactUploader artifacts: [[artifactId: 'dpipeline3', classifier: '', file: 'target/dpipeline3.war', type: 'war']], credentialsId: 'Nexus-PWD', groupId: 'in.testproject2', nexusUrl: '192.168.0.106:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'Test-Proj-2', version: '1.3-SNAPSHOT' 
-            //}
-       // }
+        stage('review the code'){
+            steps{
+            script{
+                withSonarQubeEnv(credentialsId: 'Sonar-Tokan') {
+                sh 'mvn sonar:sonar'
+                }
+                }
+            }
+        }
+        stage('Build artifacts'){
+            steps{
+            nexusArtifactUploader artifacts: [[artifactId: 'dpipeline4', classifier: '', file: 'target/dpipeline4.war', type: 'war']], credentialsId: 'Nexus-PWD', groupId: 'in.testproject2', nexusUrl: '192.168.0.106:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'Test-Proj-2', version: '1.3-SNAPSHOT' 
+            }
+        }
         stage('Deploy'){
             steps{
                 sshagent(['pw1']){
                     sh '''
-                            scp -o StrictHostKeyChecking=no target/01-maven-web-app.war vagrant@192.168.0.103:/opt/tomcat/webapps/
+                            scp -o StrictHostKeyChecking=no target/dpipeline4.war vagrant@192.168.0.103:/opt/tomcat/webapps/
                     '''
                              // ssh vagrant@192.168.0.103 tomcatdown
                             // ssh vagrant@192.168.0.103 tomcatup
