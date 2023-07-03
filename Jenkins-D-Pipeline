@@ -9,11 +9,12 @@ pipeline{
         stage ('Maven Build'){
             steps{
                 sh 'mvn clean package'
+                sh 'mv target/*.war target/dpipeline1.war
             }
         }
         stage('Deploy'){
             steps{
-                sh 'ssh -o StrictHostKeyChecking=no'
+                sh 'ssh -o StrictHostKeyChecking=no vagrant@192.168.0.103'
             }
         }
     }
