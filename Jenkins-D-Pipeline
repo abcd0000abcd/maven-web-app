@@ -16,7 +16,7 @@ pipeline{
             steps{
                 sshagent(['pw1']){
                     sh '''
-                            ssh -o StrictHostKeyChecking=no vagrant@192.168.0.103 tomcatdown
+                            scp -o StrictHostKeyChecking=no arget/dpipeline1.war vagrant@192.168.0.103:/opt/tomcat/bin/webapps/
                     '''
                 }
             }
