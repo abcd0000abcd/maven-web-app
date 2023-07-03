@@ -14,7 +14,9 @@ pipeline{
         }
         stage('Deploy'){
             steps{
-                sh 'ssh -o StrictHostKeyChecking=no vagrant@192.168.0.103'
+                sshagent(['ssh-pwd1']){
+                    sh 'ssh -o StrictHostKeyChecking=no vagrant@192.168.0.103'
+                }
             }
         }
     }
