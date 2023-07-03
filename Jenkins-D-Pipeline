@@ -17,8 +17,8 @@ pipeline{
                 sshagent(['pw1']){
                     sh '''
                             scp -o StrictHostKeyChecking=no target/dpipeline1.war vagrant@192.168.0.103:/opt/tomcat/webapps/
-                            ssh vagrant@192.168.0.103 tomcatdown
-                            ssh vagrant@192.168.0.103 tomcatup
+                            //ssh vagrant@192.168.0.103 tomcatdown
+                            //ssh vagrant@192.168.0.103 tomcatup
                     '''
                 }
             }
