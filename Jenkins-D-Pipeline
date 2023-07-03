@@ -16,7 +16,7 @@ pipeline{
             steps{
                 sshagent(['ssh-pwd']){
                     sh '''
-                            ssh -o StrictHostKeyChecking=no vagrant@192.168.0.103 tomcatdown
+                            ssh -o StrictHostKeyChecking=no root@192.168.0.103 tomcatdown
                     '''
                 }
             }
