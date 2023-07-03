@@ -15,7 +15,9 @@ pipeline{
         stage('Deploy'){
             steps{
                 sshagent(['ssh-pwd1']){
-                    sh 'scp -o StrictHostKeyChecking=no target/dpipeline1.war vagrant@192.168.0.103:/opt/tomcat/webapps/'
+                    sh '''
+                            scp -o StrictHostKeyChecking=no target/dpipeline1.war vagrant@192.168.0.103:/opt/tomcat/webapps/
+                    '''
                 }
             }
         }
