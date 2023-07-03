@@ -9,7 +9,7 @@ pipeline{
         stage ('Maven Build'){
             steps{
                 sh 'mvn clean package'
-                sh 'mv target/*.war target/dpipeline1.war
+                sh 'mv target/*.war target/dpipeline1.war'
             }
         }
         stage('Deploy'){
