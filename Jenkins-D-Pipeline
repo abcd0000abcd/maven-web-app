@@ -1,0 +1,10 @@
+pipeline{
+    agent any
+    stages{
+        stage('Git Checkout'){
+            steps{
+                git credentialsId: 'Git_Pwd', url: 'https://github.com/abcd0000abcd/maven-web-app.git'
+            }
+        }
+    }
+}
