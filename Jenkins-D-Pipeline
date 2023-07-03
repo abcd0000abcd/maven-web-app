@@ -9,14 +9,14 @@ pipeline{
         stage ('Maven Build'){
             steps{
                 sh 'mvn clean package'
-                sh 'mv target/*.war target/dpipeline1.war'
+                sh 'mv target/*.war target/dpipeline2.war'
             }
         }
         stage('Deploy'){
             steps{
                 sshagent(['pw1']){
                     sh '''
-                            scp -o StrictHostKeyChecking=no target/dpipeline1.war vagrant@192.168.0.103:/opt/tomcat/webapps/
+                            scp -o StrictHostKeyChecking=no target/dpipeline2.war vagrant@192.168.0.103:/opt/tomcat/webapps/
                     '''
                             // ssh vagrant@192.168.0.103 tomcatdown
                             // ssh vagrant@192.168.0.103 tomcatup
