@@ -23,7 +23,7 @@ pipeline{
         }
         stage('Build artifacts'){
             steps{
-                nexusArtifactUploader artifacts: [[artifactId: 'test-webapp', classifier: '', file: 'webapp/target/webapp.war', type: 'war']], credentialsId: 'Nexus-PWD', groupId: 'in.testproject2', nexusUrl: '192.168.0.106:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'Test-Proj-2', version: '1.1-SNAPSHOT' 
+                nexusArtifactUploader artifacts: [[artifactId: 'dpipeline2', classifier: '', file: 'target/dpipeline2.war', type: 'war']], credentialsId: 'Nexus-PWD', groupId: 'in.testproject2', nexusUrl: '192.168.0.106:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'Test-Proj-2', version: '1.2-SNAPSHOT' 
             }
         }
         stage('Deploy'){
