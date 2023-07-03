@@ -13,10 +13,8 @@ pipeline{
             }
         }
         stage('review the code'){
-            steps{
                 withSonarQubeEnv(credentialsId: 'Sonar-Tokan') {
-                 sh 'mvn sonar:sonar'
-                }    
+                 sh 'mvn sonar:sonar'  
             }
         }
             
