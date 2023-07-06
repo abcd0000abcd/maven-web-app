@@ -1,4 +1,4 @@
-currentBuild.displayName = "Build - "+currentBuild.number "at -"+ BUILD_TIMESTAMP
+currentBuild.displayName = "Build - "+currentBuild.number+" "+ BUILD_TIMESTAMP
 pipeline{
     agent any
     tools {
