@@ -65,7 +65,7 @@ pipeline{
                   protocol: 'http',
                   nexusUrl: nexusUrl,
                   groupId: groupId,
-                  version: '1.0-SNAPSHOT',
+                  version: "${env.BUILD_ID} - ${env.BUILD-TIMESTAMP}",
                   repository: repository,
                   credentialsId: serverPwd,
                   artifacts: [
