@@ -54,7 +54,7 @@ pipeline{
                     def nexusUrl = '192.168.0.106:8081' // Nexus server URL
                     def repository = 'cicd-project' // Nexus repository name
                     def groupId = 'in.cicd-2' // Artifact group ID
-                    def artifactId = 'proj-2' // Artifact ID
+                    def artifactId = 'proj-2.1' // Artifact ID
                     def version = '1.0-SNAPSHOT' // Artifact version
                     def file = 'webapp/target/proj-2.war'
               
