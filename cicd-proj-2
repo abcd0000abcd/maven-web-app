@@ -1,4 +1,4 @@
-currentBuild.displayName = "Build : "+currentBuild.number
+currentBuild.displayName = "Build : "+currentBuild.number + BUILD_TIMESTAMP
 pipeline{
     agent any
     tools {
@@ -30,7 +30,7 @@ pipeline{
                 sh 'mvn test'
             }
         }
-        stage ('code analysis'){ 
+        stage ('SonarQube code analysis'){ 
             steps{
                 script{
                     withSonarQubeEnv(credentialsId: 'Sonar-Tokan') {
