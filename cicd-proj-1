@@ -7,5 +7,5 @@ pipeline{
                 git credentialsId: 'Git_Pwd', url: 'https://github.com/abcd0000abcd/hello-world.git'
             }
         }
-    )
-)
+    }
+}
