@@ -29,7 +29,9 @@ pipeline{
         }
         stage ('code analysis'){
             steps{
+                withSonarQubeEnv(credentialsId: 'Sonar-Tokan') {
                 sh 'mvn sonar:sonar'
+                }
             }
         }
     }
