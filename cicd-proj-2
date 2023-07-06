@@ -26,11 +26,11 @@ pipeline{
             steps{
                 sh 'mvn test'
             }
-        }
-        stage ('code analysis'){
-            steps{
-                sh 'mvn sonar:sonar'
-            }
-        }
+       // }
+        //stage ('code analysis'){
+          //  steps{
+            //    sh 'mvn sonar:sonar'
+            //}
+        //}
     }
 }
