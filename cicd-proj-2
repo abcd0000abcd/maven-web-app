@@ -20,7 +20,7 @@ pipeline{
                 success{
                     echo 'now Archiving it..'
                     archiveArtifacts artifacts: '**/target/*.war'
-                    sh 'mv **/target/*.war webapp/target/proj-2.war'
+                    sh 'mv **/target/*.war webapp/target/proj-2-'${env.BUILD_ID}-${env.BUILD_TIMESTAMP}'.war'
                 }
             }
         }
@@ -57,12 +57,12 @@ pipeline{
                     def artifactId = 'proj-2' // Artifact ID
                     def version = '1.0-SNAPSHOT' // Artifact version
                     def file = 'webapp/target/proj-2.war'
-            
+              
             // Upload the artifact to Nexus
             
                 nexusArtifactUploader(
                   nexusVersion: 'nexus3',
-                  protocol: 'http',
+                  protocol: 'http', // Use 'https' if applicable
                   nexusUrl: nexusUrl,
                   groupId: groupId,
                   version: "${env.BUILD_ID} - ${env.BUILD_TIMESTAMP}",
@@ -71,7 +71,7 @@ pipeline{
                   artifacts: [
                     [artifactId: artifactId, 
                      classifier: '', 
-                     file: file, 
+                     file: "webapp/target/${artifactId}.war", // Path to the artifact file 
                      type: 'war']
                      ]
                 )
