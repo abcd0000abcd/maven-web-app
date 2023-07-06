@@ -18,7 +18,7 @@ pipeline{
                 success{
                     echo 'now Archiving it..'
                     archiveArtifacts artifacts: '**/target/*.war'
-                    sh 'mv **/target/*.war webapp/target/test-p-1.war'
+                    sh 'mv **/target/*.war webapp/target/test-p-2.war'
                 }
             }
         }
