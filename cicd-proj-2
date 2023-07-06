@@ -20,7 +20,7 @@ pipeline{
                 success{
                     echo 'now Archiving it..'
                     archiveArtifacts artifacts: '**/target/*.war'
-                    sh 'mv **/target/*.war /webapp/target/proj-2.war'
+                    sh 'mv **/target/*.war webapp/target/proj-2.war'
                 }
             }
         }
