@@ -20,7 +20,7 @@ pipeline{
                 success{
                     echo 'now Archiving it..'
                     archiveArtifacts artifacts: '**/target/*.war'
-                    sh 'mv **/target/*.war webapp/target/test-p-2.war'
+                    sh 'mv **/target/*.war /target/proj-2.war'
                 }
             }
         }
@@ -54,7 +54,7 @@ pipeline{
                     def nexusUrl = 'http://192.168.0.106:8081' // Nexus server URL
                     def repository = 'cicd-project' // Nexus repository name
                     def groupId = 'cicd-2' // Artifact group ID
-                    def artifactId = 'cicd-proj-2' // Artifact ID
+                    def artifactId = 'proj-2' // Artifact ID
                     def version = '${env.BUILD_ID}-${env.BUILD_TIMESTAMP}' // Artifact version
           
           // Construct the artifact path
