@@ -1,0 +1,26 @@
+currentBuild.displayName = "build-#"+currentBuild.number
+pipeline{
+    agent any
+    tools {
+        maven "MAVEN3"
+    }
+    stages{
+        stage('Git Checkout'){
+            steps{
+                git credentialsId: 'Git_Pwd', url: 'https://github.com/abcd0000abcd/hello-world.git'
+            }
+        }
+        stage('Maven build'){
+            steps{
+                sh 'mvn install -DskipTests'
+            }
+            post{
+                success{
+                    echo 'now Archiving it..'
+                    archiveArtifacts artifacts: '**/target/*.war'
+                    sh 'mv **/target/*.war webapp/target/test-p-1.war'
+                }
+            }
+        }
+    }
+}
