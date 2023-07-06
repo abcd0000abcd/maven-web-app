@@ -20,7 +20,7 @@ pipeline{
                 success{
                     echo 'now Archiving it..'
                     archiveArtifacts artifacts: '**/target/*.war'
-                    sh 'mv **/target/*.war /target/proj-2.war'
+                    sh 'mv **/target/*.war /webapp/target/proj-2.war'
                 }
             }
         }
@@ -51,7 +51,7 @@ pipeline{
             steps {
                 script {
                     def server = 'Nexus-PWD' // Nexus server configuration in Jenkins
-                    def nexusUrl = 'http://192.168.0.106:8081' // Nexus server URL
+                    def nexusUrl = '192.168.0.106:8081' // Nexus server URL
                     def repository = 'cicd-project' // Nexus repository name
                     def groupId = 'cicd-2' // Artifact group ID
                     def artifactId = 'proj-2' // Artifact ID
@@ -68,7 +68,7 @@ pipeline{
                     groupId: groupId,
                     version: version,
                     repository: repository,
-                    file: "target/${artifactId}-${version}.jar", // Path to the artifact file
+                    file: "/webapp/target/${artifactId}-${version}.jar", // Path to the artifact file
                     artifact: artifactPath,
                     credentialsId: server
                     )
