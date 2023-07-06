@@ -49,7 +49,7 @@ pipeline{
         }
         stage('Upload Artifact Nexus') {
             steps {
-                script {
+                //script {
                     def server = 'Nexus-PWD' // Nexus server configuration in Jenkins
                     def nexusUrl = '192.168.0.106:8081' // Nexus server URL
                     def repository = 'cicd-project' // Nexus repository name
@@ -64,7 +64,7 @@ pipeline{
                   groupId: 'in.proj-2',
                   version: '1.0-SNAPSHOT',
                   repository: 'cicd-project',
-                  credentialsId: 'server',
+                  credentialsId: server,
                   artifacts: [
                     [artifactId: 'proj-2', 
                      classifier: '', 
@@ -72,7 +72,7 @@ pipeline{
                      type: 'war']
                      ]
                 )
-                }
+                //}
                 //script {
                   //  def server = 'Nexus-PWD' // Nexus server configuration in Jenkins
                     //def nexusUrl = '192.168.0.106:8081' // Nexus server URL
