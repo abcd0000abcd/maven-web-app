@@ -26,7 +26,7 @@ pipeline{
             steps{
                 sh 'mvn test'
             }
-       // }
+        }
         //stage ('code analysis'){
           //  steps{
             //    sh 'mvn sonar:sonar'
