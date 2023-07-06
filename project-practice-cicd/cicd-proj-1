@@ -1,10 +1,11 @@
+currentBuild.displayName = "build-#"+currentBuild.number
 pipeline{
     agent any
     stages{
-        stage{
+        stage('Git Checkout'){
             steps{
-
+                git credentialsId: 'Git_Pwd', url: 'https://github.com/abcd0000abcd/hello-world.git'
             }
         }
-    }
-}
+    )
+)
