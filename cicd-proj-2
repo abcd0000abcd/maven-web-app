@@ -1,4 +1,4 @@
-currentBuild.displayName = "build-#"+currentBuild.number
+currentBuild.displayName = "Build : "+currentBuild.number
 pipeline{
     agent any
     tools {
@@ -20,6 +20,11 @@ pipeline{
                     archiveArtifacts artifacts: '**/target/*.war'
                     sh 'mv **/target/*.war webapp/target/test-p-1.war'
                 }
+            }
+        }
+        stage('Unit testing'){
+            steps{
+                sh 'mvn test'
             }
         }
     }
