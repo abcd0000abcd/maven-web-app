@@ -1,7 +1,8 @@
 currentBuild.displayName = "Build:"+currentBuild.number+" "+ BUILD_TIMESTAMP
 def COLOR_MAP = [
-    'SUCCESS': 'good'
-    'FALURE':'danger']
+    'SUCCESS': 'good',
+    'FALURE':'danger',
+    ]
 pipeline{
     agent any
     tools {
