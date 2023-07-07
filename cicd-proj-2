@@ -53,7 +53,7 @@ pipeline{
                     def serverPwd = 'Nexus-PWD' // Nexus server configuration in Jenkins
                     def nexusUrl = '192.168.0.106:8081' // Nexus server URL
                     def repository = 'cicd-project' // Nexus repository name
-                    def groupId = 'in.cicd-2' // Artifact group ID
+                    def groupId = 'cicd' // Artifact group ID
                     def artifactId = 'proj-2' // Artifact ID
                     def version = '1.0-SNAPSHOT' // Artifact version
                     def file = 'webapp/target/proj-2.war'
@@ -65,7 +65,7 @@ pipeline{
                   protocol: 'http', // Use 'https' if applicable
                   nexusUrl: nexusUrl,
                   groupId: groupId,
-                  version: "${env.BUILD_ID} - ${env.BUILD_TIMESTAMP}",
+                  version: "Build-"+"${env.BUILD_ID} - ${env.BUILD_TIMESTAMP}",
                   repository: repository,
                   credentialsId: serverPwd,
                   artifacts: [
