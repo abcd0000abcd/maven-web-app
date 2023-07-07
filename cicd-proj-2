@@ -38,7 +38,8 @@ pipeline{
             steps{
                 script{
                     withSonarQubeEnv(credentialsId: 'Sonar-Tokan') {
-                    sh 'mvn sonar:sonar'
+                    //sh 'mvn sonar:sonar'
+                    sh 'booking'
                     }
                 }
                 
@@ -82,7 +83,7 @@ pipeline{
                 }
             }
         }
-    } /
+    } 
     post{
         always{
             echo 'Slack Notifiction'
