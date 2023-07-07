@@ -55,7 +55,7 @@ pipeline{
                     def repository = 'cicd-project' // Nexus repository name
                     def groupId = 'cicd' // Artifact group ID
                     def artifactId = 'proj-2' // Artifact ID
-                    def version = "Build#"+"${env.BUILD_ID} -> ${env.BUILD_TIMESTAMP}" // Artifact version
+                    def version = "Build#"+"${env.BUILD_ID} => ${env.BUILD_TIMESTAMP}" // Artifact version
                     def file = 'webapp/target/proj-2.war'
               
             // Upload the artifact to Nexus
