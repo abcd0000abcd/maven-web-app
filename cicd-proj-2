@@ -76,31 +76,6 @@ pipeline{
                      ]
                 )
                 }
-                //script {
-                  //  def server = 'Nexus-PWD' // Nexus server configuration in Jenkins
-                    //def nexusUrl = '192.168.0.106:8081' // Nexus server URL
-                    //def repository = 'cicd-project' // Nexus repository name
-                    //def groupId = 'cicd-2' // Artifact group ID
-                    //def artifactId = 'in.proj-2' // Artifact ID
-                    //def version = '1.0-SNAPSHOT' // Artifact version
-          
-          // Construct the artifact path
-                    
-             //       def artifactPath = "${groupId.replace('.', '/')}/${artifactId}/${version}/${artifactId}-${version}.jar"
-        
-          // Upload the artifact to Nexus
-               //     nexusArtifactUploader(
-                 //   nexusVersion: 'nexus3', // Specify Nexus version (nexus2 or nexus3)
-                  // // protocol: 'http', // Use 'https' if applicable
-                   // nexusUrl: nexusUrl,
-                    //groupId: groupId,
-                   // version: version,
-                    //repository: repository,
-                    //file: "webapp/target/${artifactId}-${version}.war", // Path to the artifact file
-                    //artifact: artifactPath,
-                    //credentialsId: server
-                 //   )
-                //}
             }
         }
     }           
