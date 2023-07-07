@@ -38,8 +38,7 @@ pipeline{
             steps{
                 script{
                     withSonarQubeEnv(credentialsId: 'Sonar-Tokan') {
-                    //sh 'mvn sonar:sonar'
-                    sh 'booking'
+                    sh 'mvn sonar:sonar'
                     }
                 }
                 
