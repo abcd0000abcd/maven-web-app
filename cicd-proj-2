@@ -1,4 +1,8 @@
 currentBuild.displayName = "Build:"+currentBuild.number+" "+ BUILD_TIMESTAMP
+def COLOR_MAP = [
+    'SUCCESS': 'good'
+    'FALURE':'danger'
+]
 pipeline{
     agent any
     tools {
@@ -83,8 +87,8 @@ pipeline{
         always{
             echo 'Slack Notifiction'
             slackSend channel: '#jenkins_cicd',
-            color: COLOR_MAP [currentBuild.currentResult],
-            message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER}"
+            color: COLOR_MAP[currentBuild.currentResult],
+            message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} \n"
         }
     }
 }
