@@ -65,7 +65,7 @@ pipeline{
                   protocol: 'http', // Use 'https' if applicable
                   nexusUrl: nexusUrl,
                   groupId: groupId,
-                  version: "Build-"+"${env.BUILD_ID} - ${env.BUILD_TIMESTAMP}",
+                  version: "Build #"+"${env.BUILD_ID} - ${env.BUILD_TIMESTAMP}",
                   repository: repository,
                   credentialsId: serverPwd,
                   artifacts: [
